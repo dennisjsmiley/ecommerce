@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class Cart {
 
-    List<CartItem> basket = new ArrayList<>();
+    private final List<CartItem> basket = new ArrayList<>();
 
     double calculateTotal() {
         double total = 0;

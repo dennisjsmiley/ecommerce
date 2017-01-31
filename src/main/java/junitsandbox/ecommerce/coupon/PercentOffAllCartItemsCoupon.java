@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class PercentOffAllCartItemsCoupon extends Coupon {
 
-    double percent;
+    private final double percent;
 
     public PercentOffAllCartItemsCoupon(double percent) {
         this.percent = percent;

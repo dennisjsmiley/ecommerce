@@ -64,6 +64,14 @@ public class CouponTest {
     public void testPercentOffAllCartItemsCouponApply() {
         Coupon coupon = new PercentOffAllCartItemsCoupon(10);
         assertEquals(-10, coupon.apply(100, 0), maxDelta);
+
+        assertEquals(-20, coupon.apply(200, 0), maxDelta);
+
+        coupon = new PercentOffAllCartItemsCoupon(5);
+
+        assertEquals(-5, coupon.apply(100, 0), maxDelta);
+
+        assertEquals(-10, coupon.apply(200, 0), maxDelta);
     }
 
     // PercentOffNextProductCoupon
@@ -93,5 +101,13 @@ public class CouponTest {
         Coupon coupon = new PercentOffNextProductCoupon(10);
 
         assertEquals(-10, coupon.apply(0, 100), maxDelta);
+
+        assertEquals(-20, coupon.apply(0, 200), maxDelta);
+
+        coupon = new PercentOffNextProductCoupon(5);
+
+        assertEquals(-5, coupon.apply(0, 100), maxDelta);
+
+        assertEquals(-10, coupon.apply(0, 200), maxDelta);
     }
 }

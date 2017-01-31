@@ -12,9 +12,9 @@ import java.util.List;
  */
 public class FlatAmountOffCartAfterNthProductCoupon extends Coupon {
 
-    double flatAmount;
-    String productName;
-    int N;
+    private final double flatAmount;
+    private final String productName;
+    private final int N;
 
 
     public FlatAmountOffCartAfterNthProductCoupon(double flatAmount, String productName, int N) {

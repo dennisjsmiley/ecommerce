@@ -7,8 +7,8 @@ import junitsandbox.ecommerce.CartItem;
  */
 public class Product extends CartItem {
 
-    final String name;
-    final double price;
+    private final String name;
+    private final double price;
 
     public Product(String name, double price) {
         this.name = name;

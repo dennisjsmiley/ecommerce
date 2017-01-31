@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class PercentOffNextProductCoupon extends Coupon {
 
-    double percent;
+    private final double percent;
 
     public PercentOffNextProductCoupon(double percent) {
         this.percent = percent;
