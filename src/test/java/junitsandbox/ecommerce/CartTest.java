@@ -2,8 +2,9 @@ package junitsandbox.ecommerce;
 
 import junitsandbox.ecommerce.coupon.FlatAmountOffCartAfterNthProductCoupon;
 import junitsandbox.ecommerce.coupon.PercentOffAllCartItemsCoupon;
-import junitsandbox.ecommerce.coupon.PercentOffNextCartItemCoupon;
+import junitsandbox.ecommerce.coupon.PercentOffNextProductCoupon;
 import junitsandbox.ecommerce.product.Product;
+import junitsandbox.util.Util;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -13,10 +14,34 @@ import static org.junit.Assert.assertEquals;
  */
 public class CartTest {
 
-    final static double maxDelta = 0.00001;
+    final static double maxDelta = Util.MAX_DELTA;
 
     @Test
-    public void testCart() {
+    public void testPercentOffAllCartItemsCoupon() {
+        Cart cart = new Cart();
+
+        cart.addProduct(new Product("Jacket", 100));
+
+        cart.addCoupon(new PercentOffAllCartItemsCoupon(10));
+
+        assertEquals(90, cart.calculateTotal(), maxDelta);
+
+        cart.addProduct(new Product("Jacket", 100));
+
+        assertEquals(190, cart.calculateTotal(), maxDelta);
+
+        cart.addProduct(new Product("Watch", 10));
+
+        assertEquals(200, cart.calculateTotal(), maxDelta);
+
+        cart.addCoupon(new PercentOffAllCartItemsCoupon(50));
+
+        assertEquals(100, cart.calculateTotal(), maxDelta);
+
+    }
+
+//    @Test
+    public void testCartMain() {
         Cart cart = new Cart();
 
         // 1.
@@ -28,7 +53,7 @@ public class CartTest {
         assertEquals(60, cart.calculateTotal(), maxDelta);
 
         // 3.
-        cart.addCoupon(new PercentOffNextCartItemCoupon(20.0));
+        cart.addCoupon(new PercentOffNextProductCoupon(20.0));
 
         // 4.
         assertEquals(60, cart.calculateTotal(), maxDelta);

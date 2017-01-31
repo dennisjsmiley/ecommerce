@@ -22,5 +22,4 @@ public class Product extends CartItem {
     public double getPrice() {
         return price;
     }
-
 }
