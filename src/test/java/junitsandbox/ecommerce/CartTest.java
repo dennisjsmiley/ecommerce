@@ -17,6 +17,25 @@ public class CartTest {
     final static double maxDelta = Util.MAX_DELTA;
 
     @Test
+    public void testFlatAmountOffCartAfterNthProductCoupon() {
+        Cart cart = new Cart();
+
+        for (int i = 0; i < 2; i ++) {
+            cart.addProduct(new Product("Jacket", 100));
+        }
+
+        assertEquals(200, cart.calculateTotal(), maxDelta);
+
+        cart.addCoupon(new FlatAmountOffCartAfterNthProductCoupon(10, "Jacket", 2));
+
+        assertEquals(190, cart.calculateTotal(), maxDelta);
+
+        cart.addCoupon(new FlatAmountOffCartAfterNthProductCoupon(10, "Jacket", 2));
+
+        assertEquals(180, cart.calculateTotal(), maxDelta);
+    }
+
+    @Test
     public void testPercentOffAllCartItemsCoupon() {
         Cart cart = new Cart();
 
@@ -40,7 +59,28 @@ public class CartTest {
 
     }
 
-//    @Test
+    @Test
+    public void testPercentOffNextProductCoupon() {
+        Cart cart = new Cart();
+
+        cart.addProduct(new Product("Jacket", 100));
+
+        assertEquals(100, cart.calculateTotal(), maxDelta);
+
+        cart.addCoupon(new PercentOffNextProductCoupon(10));
+
+        assertEquals(100, cart.calculateTotal(), maxDelta);
+
+        cart.addProduct(new Product("Jacket", 100));
+
+        assertEquals(190, cart.calculateTotal(), maxDelta);
+
+        cart.addProduct(new Product("Jacket", 100));
+
+        assertEquals(290, cart.calculateTotal(), maxDelta);
+    }
+
+    @Test
     public void testCartMain() {
         Cart cart = new Cart();
 

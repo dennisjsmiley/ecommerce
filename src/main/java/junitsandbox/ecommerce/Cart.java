@@ -1,6 +1,7 @@
 package junitsandbox.ecommerce;
 
 import junitsandbox.ecommerce.coupon.Coupon;
+import junitsandbox.ecommerce.coupon.PercentOffNextProductCoupon;
 import junitsandbox.ecommerce.product.Product;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class Cart {
         double total = 0;
 
         List<Coupon> unappliedCoupons = new ArrayList<>();
+        List<Coupon> nextProductCoupons = new ArrayList<>();
         List<CartItem> curBasket = new ArrayList<>();
 
         int basketSize = basket.size();
@@ -38,6 +40,13 @@ public class Cart {
                     }
                 }
 
+                if (!nextProductCoupons.isEmpty()) {
+                    for (Coupon coupon : nextProductCoupons) {
+                        currentItemPrice += coupon.apply(total, currentItemPrice);
+                    }
+                    nextProductCoupons = new ArrayList<>();
+                }
+
                 total += currentItemPrice;
             }
             else if (item instanceof Coupon)
@@ -46,7 +55,11 @@ public class Cart {
                 if (coupon.isApplicable(curBasket)) {
                     total += coupon.apply(total, 0);
                 } else {
-                    unappliedCoupons.add(coupon);
+                    if (coupon instanceof PercentOffNextProductCoupon) {
+                        nextProductCoupons.add(coupon);
+                    } else {
+                        unappliedCoupons.add(coupon);
+                    }
                 }
             }
         }

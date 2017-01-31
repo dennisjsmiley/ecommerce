@@ -56,16 +56,4 @@ public class FlatAmountOffCartAfterNthProductCoupon extends Coupon {
         return -flatAmount;
     }
 
-    public boolean equals(Object other) {
-        if (other instanceof FlatAmountOffCartAfterNthProductCoupon) {
-            FlatAmountOffCartAfterNthProductCoupon coupon = (FlatAmountOffCartAfterNthProductCoupon) other;
-            return (
-                    Util.isEqual(flatAmount, coupon.getFlatAmount()) &&
-                    productName.equals(coupon.getProductName()) &&
-                    N == coupon.getN()
-            );
-        } else {
-            return false;
-        }
-    }
 }

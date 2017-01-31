@@ -67,37 +67,30 @@ public class CouponTest {
     }
 
     // PercentOffNextProductCoupon
-    @Test
-    public void testPercentOffNextProductCouponApplicable() {
-
-        List<CartItem> basket = new ArrayList<>();
-        Coupon coupon = new PercentOffNextProductCoupon(10);
-
-        basket.add(new Product("Jacket", 100));
-
-        assertEquals(false, coupon.isApplicable(basket));
-
-        basket.add(new Product("Watch", 100));
-
-        assertEquals(true, coupon.isApplicable(basket));
-
-        basket.add(new Product("Bracelet", 100));
-
-        assertEquals(false, coupon.isApplicable(basket));
-    }
+//    disabled -- PercentOffNextProductCoupon is always disabled because the Cart will decide when to apply
+//    @Test
+//    public void testPercentOffNextProductCouponApplicable() {
+//
+//        List<CartItem> basket = new ArrayList<>();
+//        Coupon coupon = new PercentOffNextProductCoupon(10);
+//
+//        basket.add(new Product("Jacket", 100));
+//
+//        assertEquals(false, coupon.isApplicable(basket));
+//
+//        basket.add(new Product("Watch", 100));
+//
+//        assertEquals(false, coupon.isApplicable(basket));
+//
+//        basket.add(new Product("Bracelet", 100));
+//
+//        assertEquals(false, coupon.isApplicable(basket));
+//    }
 
     @Test
     public void testPercentOffNextProductCouponApply() {
         List<CartItem> basket = new ArrayList<>();
         Coupon coupon = new PercentOffNextProductCoupon(10);
-
-        basket.add(new Product("Jacket", 100));
-
-        assertEquals(false, coupon.isApplicable(basket));
-
-        basket.add(new Product("Watch", 100));
-
-        assertEquals(true, coupon.isApplicable(basket));
 
         assertEquals(-10, coupon.apply(0, 100), maxDelta);
     }

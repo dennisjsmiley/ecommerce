@@ -30,13 +30,4 @@ public class PercentOffAllCartItemsCoupon extends Coupon {
         return - currentTotal * (percent / 100);
     }
 
-    public boolean equals(Object other) {
-        if (other instanceof PercentOffAllCartItemsCoupon) {
-            PercentOffAllCartItemsCoupon coupon = (PercentOffAllCartItemsCoupon) other;
-            return Util.isEqual(percent, coupon.getPercent());
-        } else {
-            return false;
-        }
-    }
-
 }
