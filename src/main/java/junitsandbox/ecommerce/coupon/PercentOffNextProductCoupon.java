@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Dennis Smiley on 1/31/17.
  */
-public class PercentOffNextProductCoupon extends Coupon {
+public class PercentOffNextProductCoupon extends NextProductCoupon {
 
     private final double percent;
 

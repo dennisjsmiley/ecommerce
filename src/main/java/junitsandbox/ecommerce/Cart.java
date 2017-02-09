@@ -1,6 +1,7 @@
 package junitsandbox.ecommerce;
 
 import junitsandbox.ecommerce.coupon.Coupon;
+import junitsandbox.ecommerce.coupon.NextProductCoupon;
 import junitsandbox.ecommerce.coupon.PercentOffNextProductCoupon;
 import junitsandbox.ecommerce.product.Product;
 
@@ -31,17 +32,25 @@ public class Cart {
             {
                 double currentItemPrice = ((Product) item).getPrice();
 
-                List<Coupon> tmpUnappliedCoupons = new ArrayList<>();
-                for (Coupon coupon : unappliedCoupons) {
-                    if (coupon.isApplicable(curBasket)) {
+                List<Coupon> curUnappliedCoupons = new ArrayList<>(unappliedCoupons);
+                unappliedCoupons = new ArrayList<>();
+
+                for (Coupon coupon : curUnappliedCoupons)
+                {
+                    if (coupon.isApplicable(curBasket))
+                    {
                         currentItemPrice += coupon.apply(total, currentItemPrice);
-                    } else {
-                        tmpUnappliedCoupons.add(coupon);
+                    }
+                    else
+                    {
+                        unappliedCoupons.add(coupon);
                     }
                 }
 
-                if (!nextProductCoupons.isEmpty()) {
-                    for (Coupon coupon : nextProductCoupons) {
+                if (!nextProductCoupons.isEmpty())
+                {
+                    for (Coupon coupon : nextProductCoupons)
+                    {
                         currentItemPrice += coupon.apply(total, currentItemPrice);
                     }
                     nextProductCoupons = new ArrayList<>();
@@ -52,14 +61,17 @@ public class Cart {
             else if (item instanceof Coupon)
             {
                 Coupon coupon = (Coupon) item;
-                if (coupon.isApplicable(curBasket)) {
-                    total += coupon.apply(total, 0);
-                } else {
-                    if (coupon instanceof PercentOffNextProductCoupon) {
-                        nextProductCoupons.add(coupon);
-                    } else {
+                if (coupon instanceof NextProductCoupon)
+                {
+                    nextProductCoupons.add(coupon);
+                }
+                else if (coupon.isApplicable(curBasket))
+                {
+                        total += coupon.apply(total, 0);
+                }
+                else
+                {
                         unappliedCoupons.add(coupon);
-                    }
                 }
             }
         }
