@@ -32,10 +32,10 @@ public class Cart {
             {
                 double currentItemPrice = ((Product) item).getPrice();
 
-                List<Coupon> curUnappliedCoupons = new ArrayList<>(unappliedCoupons);
+                List<Coupon> potentialCoupons = new ArrayList<>(unappliedCoupons);
                 unappliedCoupons = new ArrayList<>();
 
-                for (Coupon coupon : curUnappliedCoupons)
+                for (Coupon coupon : potentialCoupons)
                 {
                     if (coupon.isApplicable(curBasket))
                     {
