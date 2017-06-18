@@ -1,6 +1,6 @@
-package junitsandbox.ecommerce.product;
+package tech.aircastle.ecommerce.product;
 
-import junitsandbox.ecommerce.CartItem;
+import tech.aircastle.ecommerce.CartItem;
 
 /**
  * Created by Dennis Smiley on 1/31/17.

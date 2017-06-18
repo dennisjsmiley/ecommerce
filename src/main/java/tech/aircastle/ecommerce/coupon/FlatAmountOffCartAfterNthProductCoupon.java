@@ -1,9 +1,7 @@
-package junitsandbox.ecommerce.coupon;
+package tech.aircastle.ecommerce.coupon;
 
-import junitsandbox.ecommerce.CartItem;
-import junitsandbox.ecommerce.product.Product;
-import junitsandbox.util.Util;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import tech.aircastle.ecommerce.CartItem;
+import tech.aircastle.ecommerce.product.Product;
 
 import java.util.List;
 

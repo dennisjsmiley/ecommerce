@@ -1,4 +1,4 @@
-package junitsandbox.util;
+package tech.aircastle.util;
 
 /**
  * Created by Dennis Smiley on 1/31/17.

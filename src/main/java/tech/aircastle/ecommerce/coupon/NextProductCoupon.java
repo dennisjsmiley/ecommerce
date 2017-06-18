@@ -1,4 +1,4 @@
-package junitsandbox.ecommerce.coupon;
+package tech.aircastle.ecommerce.coupon;
 
 /**
  * Created by Dennis Smiley on 2/9/17.

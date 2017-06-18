@@ -1,7 +1,7 @@
-package junitsandbox;
+package tech.aircastle;
 
-import junitsandbox.ecommerce.CartTest;
-import junitsandbox.ecommerce.coupon.CouponTest;
+import tech.aircastle.ecommerce.CartTest;
+import tech.aircastle.ecommerce.coupon.CouponTest;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;

@@ -1,9 +1,8 @@
-package junitsandbox.ecommerce;
+package tech.aircastle.ecommerce;
 
-import junitsandbox.ecommerce.coupon.Coupon;
-import junitsandbox.ecommerce.coupon.NextProductCoupon;
-import junitsandbox.ecommerce.coupon.PercentOffNextProductCoupon;
-import junitsandbox.ecommerce.product.Product;
+import tech.aircastle.ecommerce.coupon.Coupon;
+import tech.aircastle.ecommerce.coupon.NextProductCoupon;
+import tech.aircastle.ecommerce.product.Product;
 
 import java.util.ArrayList;
 import java.util.List;

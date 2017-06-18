@@ -1,8 +1,8 @@
-package junitsandbox.ecommerce.coupon;
+package tech.aircastle.ecommerce.coupon;
 
-import junitsandbox.ecommerce.CartItem;
-import junitsandbox.ecommerce.product.Product;
-import junitsandbox.util.Util;
+import tech.aircastle.ecommerce.CartItem;
+import tech.aircastle.ecommerce.product.Product;
+import tech.aircastle.util.Util;
 import org.junit.Test;
 
 import java.util.ArrayList;

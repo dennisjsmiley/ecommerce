@@ -1,10 +1,10 @@
-package junitsandbox.ecommerce;
+package tech.aircastle.ecommerce;
 
-import junitsandbox.ecommerce.coupon.FlatAmountOffCartAfterNthProductCoupon;
-import junitsandbox.ecommerce.coupon.PercentOffAllCartItemsCoupon;
-import junitsandbox.ecommerce.coupon.PercentOffNextProductCoupon;
-import junitsandbox.ecommerce.product.Product;
-import junitsandbox.util.Util;
+import tech.aircastle.ecommerce.coupon.FlatAmountOffCartAfterNthProductCoupon;
+import tech.aircastle.ecommerce.coupon.PercentOffAllCartItemsCoupon;
+import tech.aircastle.ecommerce.coupon.PercentOffNextProductCoupon;
+import tech.aircastle.ecommerce.product.Product;
+import tech.aircastle.util.Util;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

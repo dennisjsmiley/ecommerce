@@ -1,7 +1,6 @@
-package junitsandbox.ecommerce.coupon;
+package tech.aircastle.ecommerce.coupon;
 
-import junitsandbox.ecommerce.CartItem;
-import junitsandbox.util.Util;
+import tech.aircastle.ecommerce.CartItem;
 
 import java.util.List;
 
